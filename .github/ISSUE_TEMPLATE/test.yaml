@@ -1,6 +1,5 @@
 name: Bug Report
 description: Found a bug? Report it so we can fix it as soon as possible!
-title: "core/{CORE_LIBRARY}: "
 labels: bug
 
 body:
@@ -8,45 +7,61 @@ body:
   - type: textarea
     attributes:
       label: Description
-      description: Describe the bug and how the behavior is unexpected
+      description: Describe the bug and how the behavior is unexpected.
     validations:
       required: true
 
   - type: textarea
     attributes:
       label: Reproduce
-      description: Describe the steps to reproduce the bug
+      description: Describe the steps to reproduce the bug.
     validations:
       required: true
 
   - type: textarea
     attributes:
       label: Expected Behavior
-      description: Describe what you expect the behavior should be
+      description: Describe what you expect the behavior should be.
     validations:
       required: true
 
   - type: textarea
     attributes:
       label: Code/Screenshots/Videos
-      description: Share code or media that might help us debug the issue
+      description: Share code or media that might help us debug the issue.
     validations:
       required: true
 
-  - type: textarea
+  - type: markdown
     attributes:
       label: Environment
-      description: Help us know your environment where you are experiencing the bug
-    validations:
-      required: true
+      description: Help us know your environment where you are experiencing the bug.
+
+  - type: input
+    attributes:
+      label: Deno Version
+      validations:
+        required: true
+
+  - type: input
+    attributes:
+      label: Platform
+      validations:
+        required: true
+
+  - type: input
+    attributes:
+      label: Whirlybird Version
+      validations:
+        required: true
 
   - type: checkboxes
     attributes:
       options:
-        - label: I am using TypeScript
-        - label: I have the `--unstable` command line flag enabled
+        - label: I am using TypeScript.
+        - label: I have the `--unstable` command line flag enabled.
 
   - type: textarea
     attributes:
       label: Keywords
-      description: This is not required, but it is helpful for eliminating duplicates
+      description: This will help others when searching for existing issues.
