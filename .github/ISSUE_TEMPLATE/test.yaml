@@ -33,27 +33,20 @@ body:
     validations:
       required: true
 
-  - type: [textarea, checkboxes]
+  - type: textarea
     attributes:
       label: Environment
       description: Help us know your environment where you are experiencing the bug
-    options:
-      - label: I am using TypeScript
-      - label: I have the `--unstable` command line flag enabled
     validations:
       required: true
+
+  - type: checkboxes
+    attributes:
+      options:
+        - label: I am using TypeScript
+        - label: I have the `--unstable` command line flag enabled
 
   - type: textarea
     attributes:
       label: Keywords
       description: This is not required, but it is helpful for eliminating duplicates
-
-    id: alternatives
-    attributes:
-      label: Alternative solutions or implementations
-      description: A clear and concise description of any alternative solutions or features you have considered.
-  - type: textarea
-    id: additional-context
-    attributes:
-      label: Other context
-      description: Any other context, screenshots, or file uploads that help us understand your feature request.
