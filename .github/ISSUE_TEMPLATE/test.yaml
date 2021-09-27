@@ -15,6 +15,10 @@ body:
     attributes:
       label: Reproduce
       description: Describe the steps to reproduce the bug.
+      placeholder: |
+        - Do this ...
+        - Next, do that ...
+        - Finally, ...
     validations:
       required: true
 
