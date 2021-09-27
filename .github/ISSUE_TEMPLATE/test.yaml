@@ -35,15 +35,14 @@ body:
   - type: input
     attributes:
       label: Deno Version
-      description: Make sure that your Deno version is the same or higher than Whirlybird's minimum Deno version.
+      description: Make sure that your Deno version is higher or the same as the Whirlybird minimum Deno version.
     validations:
       required: true
 
   - type: input
     attributes:
-      label: Build/Platform
+      label: Environment/Platform
       description: The name and build of your platform. Make sure to be very specific!
-      placeholder: Windows 10, Windows 11, Linux, macOS, ...
     validations:
       required: true
 
