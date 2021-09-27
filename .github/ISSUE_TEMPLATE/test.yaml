@@ -41,11 +41,13 @@ body:
   - type: input
     attributes:
       label: Platform
+      placeholder: Windows 10, Windows 11, Linux, macOS...
     validations:
       required: true
 
   - type: input
-    id: test
+    attributes:
+      label: Whirlybird Version
     validations:
       required: true
 
@@ -58,4 +60,4 @@ body:
   - type: textarea
     attributes:
       label: Keywords
-      description: This will help others when searching for existing issues.
+      description: This will help others find this issue in the search bar.
