@@ -50,12 +50,6 @@ body:
     validations:
       required: true
 
-  - type: checkboxes
-    attributes:
-      options:
-        - label: I am using TypeScript.
-        - label: I have the `--unstable` command line flag enabled.
-
   - type: textarea
     attributes:
       label: Keywords
