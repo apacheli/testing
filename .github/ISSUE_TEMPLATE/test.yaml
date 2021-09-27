@@ -33,20 +33,14 @@ body:
       required: true
 
   - type: input
-    attributes:
-      label: Deno Version
     validations:
       required: true
 
   - type: input
-    attributes:
-      label: Platform
     validations:
       required: true
 
   - type: input
-    attributes:
-      label: Whirlybird Version
     validations:
       required: true
 
