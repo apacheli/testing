@@ -33,7 +33,7 @@ body:
     validations:
       required: true
 
-  - type: textarea
+  - type: [textarea, checkboxes]
     attributes:
       label: Environment
       description: Help us know your environment where you are experiencing the bug
