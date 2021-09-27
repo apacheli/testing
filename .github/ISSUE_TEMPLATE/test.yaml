@@ -1,29 +1,53 @@
-name: Feature request
-description: Request a new feature (documented features of the official Discord developer API only!)
-labels: [feature request]
+name: Bug Report
+description: Found a bug? Report it so we can fix it as soon as possible!
+title: "core/{CORE_LIBRARY}: "
+labels: bug
+
 body:
-  - type: markdown
-    attributes:
-      value: |
-        We can only implement features that Discord publishes, documents and merges into the Discord API documentation.
-        We do not implement unreleased features.
-        Use Discord for questions: https://discord.gg/djs
+
   - type: textarea
-    id: description
     attributes:
-      label: Feature
-      description: A clear and concise description of what the problem is, or what feature you want to be implemented.
-      placeholder: I'm always frustrated when..., Discord has recently released..., A good addition would be...
+      label: Description
+      description: Describe the bug and how the behavior is unexpected
     validations:
       required: true
+
   - type: textarea
-    id: solution
     attributes:
-      label: Ideal solution or implementation
-      description: A clear and concise description of what you want to happen.
+      label: Reproduce
+      description: Describe the steps to reproduce the bug
     validations:
       required: true
+
   - type: textarea
+    attributes:
+      label: Expected Behavior
+      description: Describe what you expect the behavior should be
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Code/Screenshots/Videos
+      description: Share code or media that might help us debug the issue
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Environment
+      description: Help us know your environment where you are experiencing the bug
+    options:
+      - label: I am using TypeScript
+      - label: I have the `--unstable` command line flag enabled
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Keywords
+      description: This is not required, but it is helpful for eliminating duplicates
+
     id: alternatives
     attributes:
       label: Alternative solutions or implementations
