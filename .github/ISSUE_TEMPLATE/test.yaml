@@ -33,14 +33,19 @@ body:
       required: true
 
   - type: input
+    attributes:
+      label: Deno Version
     validations:
       required: true
 
   - type: input
+    attributes:
+      label: Platform
     validations:
       required: true
 
   - type: input
+    id: test
     validations:
       required: true
 
