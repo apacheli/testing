@@ -35,25 +35,26 @@ body:
   - type: input
     attributes:
       label: Deno Version
-      description: Make sure that your Deno version is higher or the same as the Whirlybird minimum Deno version.
+      description: Make sure your Deno version is higher or equal to the minimum required Deno version to run Whirlybird.
     validations:
       required: true
 
   - type: input
     attributes:
-      label: Environment/Platform
+      label: Platform
       description: The name and build of your platform. Make sure to be very specific!
+      placeholder: Windows 10, Windows 11, Linux (Arch Linux, Ubuntu), macOS, ...
     validations:
       required: true
 
   - type: input
     attributes:
       label: Whirlybird Version
-      description: The version of Whirlybird where you are experiencing the bug.
+      description: The version of Whirlybird you are using.
     validations:
       required: true
 
   - type: input
     attributes:
       label: Keywords
-      description: This will help others find this issue in the search bar.
+      description: This will help others find your issue in the search bar.
