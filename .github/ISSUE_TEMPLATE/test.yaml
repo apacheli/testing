@@ -43,7 +43,6 @@ body:
     attributes:
       label: Platform
       description: The name and build of your platform. Make sure to be very specific!
-      placeholder: Windows 10, Windows 11, Linux (Arch Linux, Ubuntu), macOS, ...
     validations:
       required: true
 
