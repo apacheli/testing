@@ -1,5 +1,5 @@
 name: Bug Report
-description: Found a bug? Report it so we can fix it as soon as possible!
+description: Found a bug? Report it so we can fix it as soon as possible.
 labels: bug
 
 body:
@@ -14,14 +14,14 @@ body:
   - type: textarea
     attributes:
       label: Reproduce
-      description: Describe the steps to reproduce the bug.
+      description: List the steps to reproduce the bug.
     validations:
       required: true
 
   - type: textarea
     attributes:
       label: Expected Behavior
-      description: Describe what you expect the behavior should be.
+      description: Explain what you expect the behavior should be.
     validations:
       required: true
 
