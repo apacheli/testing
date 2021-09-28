@@ -21,4 +21,4 @@ reported vulnerability, what to expect if the vulnerability is accepted or
 declined, etc.
 
 guys you have to report vulnerbitoeuis this oen soruc procjt ownt workkkkkkkkkkkkk              k unjeioslss yhou pull request all of your hard work and effort for free
-communsism ommsunism ussr
+cummunsism ommsunism ussr
