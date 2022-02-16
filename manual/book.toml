@@ -1,0 +1,9 @@
+[book]
+authors = ["apacheopteryx"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Whirlybird Manual"
+
+[output.html]
+git-repository-url = "https://github.com/apacheli/whirlybird"
