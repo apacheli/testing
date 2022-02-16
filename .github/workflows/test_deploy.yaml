@@ -24,7 +24,6 @@ jobs:
         mdbook build
         git config user.name "Deploy from CI"
         git config user.email ""
-        cd gh-pages
         # Delete the ref to avoid keeping history.
         git update-ref -d refs/heads/master
         rm -rf *
