@@ -57,19 +57,19 @@ await gateway.connect();
 
 An explanation for what is going on here:
 
+```ts
+const token = "Bot <TOKEN>";
+```
+
 Replace `<TOKEN>` with your bot's token. To get your bot's token, you can visit
 the [Discord Developer Portal](https://discord.com/developers/applications).
 
-![](https://user-images.githubusercontent.com/43933794/146322094-ec88670a-cef2-4065-af8f-815c2cf8d640.png)
+![](../assets/ping_pong_0.png)
 
 While it is unrecommended to hard-code your bot's token into your program, we
 will do it here for demonstration purposes. You can also skip to
 [Using Environment Variables](using_environment_variables.md) to see how you
 should store tokens more safely.
-
-```ts
-const token = "Bot <TOKEN>";
-```
 
 The `handleEvent` function will run whenever a shard receives an incoming event
 from the Discord gateway. At the top of the function, the cache will
@@ -108,9 +108,9 @@ const gateway = new GatewayClient(token, {
 });
 ```
 
-![](https://user-images.githubusercontent.com/43933794/146319245-628c9811-6319-438c-8c54-ceb14d3d1d6c.png)
+![](../assets/ping_pong_1.png)
 
-Finally, we connect our program.
+Finally, the last snippet will connect us to the Discord gateway.
 
 ```ts
 await gateway.connect();

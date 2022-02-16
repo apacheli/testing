@@ -28,4 +28,6 @@ import { GatewayClient, HttpClient } from "./deps.ts";
 
 `GatewayClient` and `HttpClient` is what you're most likely to use in your
 program. However, you're free to import any additional whirlybird modules as
-long as it suites your needs.
+long as it suites your needs. You can skip ahead to the
+[Core Modules](./core_modules.md) section of this manual to see the available
+exports.

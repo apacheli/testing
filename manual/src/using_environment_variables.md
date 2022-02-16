@@ -7,6 +7,9 @@ variables. You should not hard code your bot's token directly into your program.
 BOT_TOKEN=""
 ```
 
+Optionally, you can use another third party module to automatically load the
+environment variables for you.
+
 In your `main.ts` file:
 
 ```ts
@@ -16,7 +19,7 @@ const token = `Bot ${Deno.env.get("BOT_TOKEN")}`;
 You must enable `--allow-env` to use environment variables.
 
 ```ts
-$ BOT_TOKEN="" deno run --allow-net main.ts
+$ BOT_TOKEN="" deno run --allow-env --allow-net main.ts
 ```
 
 You can also use `prompt` if you forget to set an environment variable when
@@ -29,9 +32,6 @@ if (!token) {
 }
 token = `Bot ${token}`;
 ```
-
-Optionally, you can use another third party module to automatically load the
-environment variables for you.
 
 [See the Deno manual](https://deno.land/manual/getting_started/permissions#environment-variables)
 for additional details.

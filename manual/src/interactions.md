@@ -1,5 +1,37 @@
 # Interactions
 
+You must enable the `application.commands` scope for you bot if you want to use
+your bot's application commands. If you don't need application commands, you can
+skip this step. However for this tutorial, we will use an application command.
+
+Note: Interactions are not limited to just application commands. For example,
+message components such as buttons and select menus also fall under this
+category.
+
+![](../assets/interactions_0.png)
+
+Using [`core/http`](https://github.com/apacheli/whirlybird/tree/dev/core/http)
+and helpers from
+[`core/interactions`](https://github.com/apacheli/whirlybird/tree/dev/core/interactions)
+to create a global application command:
+
+```ts
+import {
+  chatInputCommand,
+  HttpClient,
+  integerOption,
+  stringOption,
+} from "./deps.ts";
+
+const http = new HttpClient(BOT_TOKEN);
+
+const command = chatInputCommand("ping", "ping pong command", {
+  /* options */
+});
+
+await http.createGlobalApplicationCommand(APPLICATION_ID, command);
+```
+
 You can receive interactions either from the Discord gateway or from an HTTP
 server.
 
@@ -47,7 +79,7 @@ If you are running an HTTP server, you need your application's public key. To
 get your application's public key, you can visit the
 [Discord Developer Portal](https://discord.com/developers/applications).
 
-![](https://user-images.githubusercontent.com/43933794/146349310-466ede86-8f3e-4844-8993-238a94635fdc.png)
+![](../assets/interactions_1.png)
 
 You can import
 [`core/interactions`](https://github.com/apacheli/whirlybird/tree/dev/core/interactions)
@@ -106,13 +138,6 @@ await callback(InteractionCallbackType.ChannelMessageWithSource, {
 });
 ```
 
-You must enable the `application.commands` scope for you bot if you want to use
-your bot's application commands. If you don't need application commands, you can
-skip this step.
+![](../assets/interactions_2.png)
 
-![](https://user-images.githubusercontent.com/43933794/146353416-ef584a89-9fa7-4229-b4cc-ef05edbd5219.png)
-
-A thing to note: interactions are limited to just application commands. For
-example, message components falls under the interactions umbrella. You can still
-receive `INTERACTION_CREATE` events even without the `application.commands`
-scope enabled.
+Congratulations! Your bot should now respond to your `/ping` command!

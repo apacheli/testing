@@ -9,7 +9,7 @@ Visit the
 your application, and then click "Bot." You may or may not have to scroll down
 to find the toggle.
 
-![](https://user-images.githubusercontent.com/43933794/146430539-3c0f7ed5-06ee-49ff-8379-ba821b549cc3.png)
+![](../assets/join_leave_messages_0.png)
 
 To connect to the gateway, you must use
 [`core/gateway`](https://github.com/apacheli/whirlybird/tree/dev/core/gateway).
@@ -94,4 +94,5 @@ const gateway = new GatewayClient(token, {
 });
 ```
 
-Congratulations! Your bot should now send join and leaves!
+Congratulations! Your bot should now send a message whenever someone joins or
+leaves your server!

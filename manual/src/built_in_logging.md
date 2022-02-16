@@ -31,7 +31,7 @@ import {
   logger,
 } from "https://github.com/apacheli/whirlybird/raw/dev/core/util/mod.ts";
 
-logger.info(ansi.yellow(`Woah, this message is yellow!`));
+logger.info(ansi.yellow("Woah, this message is yellow!"));
 ```
 
 You can also use the `ansi` export for Discord messages. You must use a code
@@ -40,6 +40,6 @@ all clients.
 
 ```ts
 await http.createMessage(channelId, {
-  content: `\`\`\`ansi\n${ansi.green("I am groot")}\n\`\`\``,
+  content: `\`\`\`ansi\n${ansi.green("i am groot")}\n\`\`\``,
 });
 ```
