@@ -22,12 +22,11 @@ jobs:
         # Just add a `cd` here if you need to change to another directory.
         cd manual
         mdbook build
-        git worktree add gh-pages gh-pages
         git config user.name "Deploy from CI"
         git config user.email ""
         cd gh-pages
         # Delete the ref to avoid keeping history.
-        git update-ref -d refs/heads/gh-pages
+        git update-ref -d refs/heads/master
         rm -rf *
         mv ../book/* .
         git add .
