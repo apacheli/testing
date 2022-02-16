@@ -1,0 +1,642 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Whirlybird Manual</title>
+        <meta name="robots" content="noindex" />
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> Getting Started</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="setting_up_a_discord_application.html"><strong aria-hidden="true">1.1.</strong> Setting Up a Discord Application</a></li><li class="chapter-item expanded "><a href="installing_deno.html"><strong aria-hidden="true">1.2.</strong> Installing Deno</a></li><li class="chapter-item expanded "><a href="installing_whirlybird.html"><strong aria-hidden="true">1.3.</strong> Installing whirlybird</a></li><li class="chapter-item expanded "><a href="ping_pong.html"><strong aria-hidden="true">1.4.</strong> Ping-Pong!</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Setting Up a Development Environment</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="installing_a_source_code_editor.html"><strong aria-hidden="true">2.1.</strong> Installing a Source-Code Editor</a></li><li class="chapter-item expanded "><a href="using_the_deno_formatter_and_linter.html"><strong aria-hidden="true">2.2.</strong> Using the Deno Formatter and Linter</a></li><li class="chapter-item expanded "><a href="javascript_versus_typescript.html"><strong aria-hidden="true">2.3.</strong> JavaScript Versus TypeScript</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Programming More Complex Features</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> Programming a Ban Command</div></li><li class="chapter-item expanded "><a href="join_leave_messages.html"><strong aria-hidden="true">3.2.</strong> Join/Leave Messages</a></li><li class="chapter-item expanded "><a href="using_environment_variables.html"><strong aria-hidden="true">3.3.</strong> Using Environment Variables</a></li><li class="chapter-item expanded "><a href="interactions.html"><strong aria-hidden="true">3.4.</strong> Interactions</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.5.</strong> Sharding</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.6.</strong> Voice</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Understanding whirlybird</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="history_of_whirlybird.html"><strong aria-hidden="true">4.1.</strong> History of whirlybird</a></li><li class="chapter-item expanded "><a href="core_modules.html"><strong aria-hidden="true">4.2.</strong> Core Modules</a></li><li class="chapter-item expanded "><a href="built_in_logging.html"><strong aria-hidden="true">4.3.</strong> Built-In Logging</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Whirlybird Manual</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/apacheli/whirlybird" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<p>The wirlybird manual will cover the most important topics related to using
+whirlybird to power a Discord bot.</p>
+<p>Continue reading to get into the realm of whirlybird!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="setting-up-a-discord-application"><a class="header" href="#setting-up-a-discord-application">Setting Up a Discord Application</a></h1>
+<p>You must create a Discord application before you can use whirlybird. To get
+started, visit the
+<a href="https://discord.com/developers/applications">Discord Developer Portal</a>.</p>
+<p>If you are on the Discord homepage, scroll to the bottom and click &quot;Developers&quot;
+listed under &quot;Resources.&quot;</p>
+<p><img src="./assets/setting_up_a_discord_application_0.png" alt="" /></p>
+<p>Once you are there, click &quot;Applications.&quot;</p>
+<p><img src="./assets/setting_up_a_discord_application_1.png" alt="" /></p>
+<p>Click &quot;New Application.&quot; It will prompt you to input a name for your
+application.</p>
+<p>Click &quot;Bot&quot; and then click &quot;Add Bot.&quot; It will open another prompt asking if you
+want your application to become a bot. Confirm by clicking &quot;Yes, do it!&quot;</p>
+<p><img src="./assets/setting_up_a_discord_application_2.png" alt="" /></p>
+<p>Next, head over to the &quot;OAuth2&quot; section and click &quot;URL Generator.&quot; It will allow
+you to invite your application into a server.</p>
+<p><img src="./assets/setting_up_a_discord_application_3.png" alt="" /></p>
+<p>Enable the <code>bot</code> scope. You can also optionally enable the
+<code>application.commands</code> scope if you need application commands (such as slash
+commands). That will be for a later topic in this manual. If you're interested,
+continue reading!</p>
+<p><img src="./assets/setting_up_a_discord_application_4.png" alt="" /></p>
+<p>At the bottom will be your generated URL. When you visit the URL, it will prompt
+an application invitation. Select the desired server you wish to add your
+application, and then click &quot;Authorize.&quot;</p>
+<p>Congratulations! You've successfully set up your Discord application! It will
+appear as offline as no program is currently running the bot. Continue reading
+to learn how whirlybird can get your bot online.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="installing-deno"><a class="header" href="#installing-deno">Installing Deno</a></h1>
+<p>whirlybird relies on the Deno runtime. To install Deno,
+<a href="https://deno.land/manual/getting_started/installation">see the Deno manual</a> to
+find the installation instructions for your operating system. The minimum
+required version of Deno to run whirlybird is <code>1.17.0</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="installing-whirlybird"><a class="header" href="#installing-whirlybird">Installing whirlybird</a></h1>
+<p>Installing whirlybird into your program is as simple as importing the core
+modules directly into your code. To clarify the README, whirlybird is not a
+module itself but a collection of modules. There is no central import location.
+Instead, you must import each of the modules individually.</p>
+<p><a href="https://deno.land/manual/examples/manage_dependencies">See the Deno manual</a> to
+learn how to manage dependencies.</p>
+<p><a href="https://github.com/apacheli/whirlybird/tree/dev/core/gateway"><code>core/gateway</code></a>
+and <a href="https://github.com/apacheli/whirlybird/tree/dev/core/http"><code>core/http</code></a> are
+generally recommended for most end-users. These two modules expose the main
+functionality of most bots.</p>
+<p>In your <code>deps.ts</code> file:</p>
+<pre><code class="language-ts">export * from &quot;https://github.com/apacheli/whirlybird/raw/dev/core/gateway/mod.ts&quot;;
+export * from &quot;https://github.com/apacheli/whirlybird/raw/dev/core/http/mod.ts&quot;;
+</code></pre>
+<p>In your <code>main.ts</code> file:</p>
+<pre><code class="language-ts">import { GatewayClient, HttpClient } from &quot;./deps.ts&quot;;
+</code></pre>
+<p><code>GatewayClient</code> and <code>HttpClient</code> is what you're most likely to use in your
+program. However, you're free to import any additional whirlybird modules as
+long as it suites your needs. You can skip ahead to the
+<a href="./core_modules.html">Core Modules</a> section of this manual to see the available
+exports.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ping-pong"><a class="header" href="#ping-pong">Ping-Pong!</a></h1>
+<p>For this ping-pong example, you need to import 3 of the core modules:
+<a href="https://github.com/apacheli/whirlybird/tree/dev/core/gateway"><code>core/gateway</code></a>,
+<a href="https://github.com/apacheli/whirlybird/tree/dev/core/http"><code>core/http</code></a>, and
+<a href="https://github.com/apacheli/whirlybird/tree/dev/core/types"><code>core/types</code></a>.</p>
+<p>In your <code>deps.ts</code> file:</p>
+<pre><code class="language-ts">export * from &quot;https://github.com/apacheli/whirlybird/raw/dev/core/gateway/mod.ts&quot;;
+export * from &quot;https://github.com/apacheli/whirlybird/raw/dev/core/http/mod.ts&quot;;
+export * from &quot;https://github.com/apacheli/whirlybird/raw/dev/core/types/mod.ts&quot;;
+</code></pre>
+<p>In your <code>main.ts</code> file:</p>
+<pre><code class="language-ts">import {
+  CacheClient,
+  GatewayClient,
+  GatewayEvents,
+  GatewayIntents,
+  type HandleEvent,
+  HttpClient,
+} from &quot;./deps.ts&quot;;
+
+const token = &quot;Bot &lt;TOKEN&gt;&quot;;
+
+const cache = new CacheClient();
+const http = new HttpClient(token);
+
+const handleEvent: HandleEvent = async (payload) =&gt; {
+  cache.update(payload);
+
+  switch (payload.t) {
+    case GatewayEvents.MessageCreate: {
+      if (payload.d.content === &quot;!ping&quot;) {
+        await http.createMessage(payload.d.channel_id, {
+          content: &quot;pong!&quot;,
+        });
+      }
+      break;
+    }
+  }
+};
+
+const gateway = new GatewayClient(token, {
+  handleEvent,
+  intents: GatewayIntents.GuildMessages,
+  ready: () =&gt; console.log(&quot;Hello, World!&quot;),
+  url: &quot;wss://gateway.discord.gg?v=9&quot;,
+});
+
+await gateway.connect();
+</code></pre>
+<p>An explanation for what is going on here:</p>
+<pre><code class="language-ts">const token = &quot;Bot &lt;TOKEN&gt;&quot;;
+</code></pre>
+<p>Replace <code>&lt;TOKEN&gt;</code> with your bot's token. To get your bot's token, you can visit
+the <a href="https://discord.com/developers/applications">Discord Developer Portal</a>.</p>
+<p><img src="./assets/ping_pong_0.png" alt="" /></p>
+<p>While it is unrecommended to hard-code your bot's token into your program, we
+will do it here for demonstration purposes. You can also skip to
+<a href="using_environment_variables.html">Using Environment Variables</a> to see how you
+should store tokens more safely.</p>
+<p>The <code>handleEvent</code> function will run whenever a shard receives an incoming event
+from the Discord gateway. At the top of the function, the cache will
+automatically update based on the gateway event. In the next part of this code
+snippet, whenever a message gets sent that says <code>!ping</code>, your bot will reply
+with <code>pong!</code>.</p>
+<pre><code class="language-ts">const handleEvent: HandleEvent = async (payload) =&gt; {
+  cache.update(payload);
+
+  switch (payload.t) {
+    case GatewayEvents.MessageCreate: {
+      if (payload.d.content === &quot;!ping&quot;) {
+        await http.createMessage(payload.d.channel_id, {
+          content: &quot;pong!&quot;,
+        });
+      }
+      break;
+    }
+  }
+};
+</code></pre>
+<p>This part of the code creates our access to the Discord gateway. Whenever all
+shards are ready, &quot;Hello, World!&quot; will be logged into your console. For
+something as minimal as this, the only intent you will need to enable is guild
+messages.</p>
+<pre><code class="language-ts">const gateway = new GatewayClient(token, {
+  handleEvent,
+  intents: GatewayIntents.GuildMessages,
+  ready: () =&gt; console.log(&quot;Hello, World!&quot;),
+  url: &quot;wss://gateway.discord.gg?v=9&quot;,
+});
+</code></pre>
+<p><img src="./assets/ping_pong_1.png" alt="" /></p>
+<p>Finally, the last snippet will connect us to the Discord gateway.</p>
+<pre><code class="language-ts">await gateway.connect();
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="installing-a-source-code-editor"><a class="header" href="#installing-a-source-code-editor">Installing a Source-Code Editor</a></h1>
+<p>Here are some source-code editor recommendations:</p>
+<ul>
+<li><a href="https://code.visualstudio.com/">Visual Studio Code</a></li>
+<li><a href="https://atom.io/">Atom</a></li>
+<li><a href="https://www.sublimetext.com/">Sublime Text</a></li>
+<li><a href="https://notepad-plus-plus.org/downloads/">Notepad++</a></li>
+<li><a href="https://www.jetbrains.com/">JetBrains</a></li>
+<li><a href="https://www.vim.org/">Vim</a></li>
+<li><a href="https://www.gnu.org/software/emacs/">GNU Emacs</a></li>
+</ul>
+<p>There are many more source-code editors out there waiting to be your favorite.
+You can also just use the default text editor on your operating system if you
+wish. Additionally, you can
+<a href="https://deno.land/manual/getting_started/setup_your_environment">read up on the Deno manual</a>
+for more details.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="using-the-deno-formatter-and-linter"><a class="header" href="#using-the-deno-formatter-and-linter">Using the Deno Formatter and Linter</a></h1>
+<p>Deno provides built-in tools such as a formatter and linter. You can access them
+by typing into the CLI.</p>
+<p><a href="https://deno.land/manual/tools/formatter">Deno formatter</a>:</p>
+<pre><code class="language-sh">$ deno fmt
+</code></pre>
+<p><a href="https://deno.land/manual/tools/linter">Deno linter</a>:</p>
+<pre><code class="language-sh">$ deno lint
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="javascript-versus-typescript"><a class="header" href="#javascript-versus-typescript">JavaScript Versus TypeScript</a></h1>
+<p>You can use whichever of the two languages that you prefer. You can also use
+them both simultaneously. You can even use JavaScript even though whirlybird is
+written in TypeScript.</p>
+<p>For more information,
+<a href="https://deno.land/manual/typescript">see the Deno manual</a>.</p>
+<p>My take: TypeScript is not perfect, but it is one hell of a good bandage for
+JavaScript.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="joinleave-messages"><a class="header" href="#joinleave-messages">Join/Leave Messages</a></h1>
+<p>To know if someone has joined your server, you need to connect to the Discord
+gateway. Additionally, you will also need to enable the &quot;server members intent&quot;
+for you application.</p>
+<p>Visit the
+<a href="https://discord.com/developers/applications">Discord Developer Portal</a> to find
+your application, and then click &quot;Bot.&quot; You may or may not have to scroll down
+to find the toggle.</p>
+<p><img src="./assets/join_leave_messages_0.png" alt="" /></p>
+<p>To connect to the gateway, you must use
+<a href="https://github.com/apacheli/whirlybird/tree/dev/core/gateway"><code>core/gateway</code></a>.</p>
+<p>In your <code>deps.ts</code> file:</p>
+<pre><code class="language-ts">export * from &quot;https://github.com/apacheli/whirlybird/raw/dev/core/gateway/mod.ts&quot;;
+</code></pre>
+<p>You will receive two events: <code>GUILD_MEMBER_ADD</code> and <code>GUILD_MEMBER_REMOVE</code>. In
+your <code>handleEvent</code> function, create a case for both of these events:</p>
+<pre><code class="language-ts">const handleEvent: HandleEvent = (payload) =&gt; {
+  switch (payload.t) {
+    case GatewayEvents.GuildMemberAdd: {
+      // ...
+      break;
+    }
+
+    case GatewayEvents.GuildMembeRemove: {
+      // ...
+      break;
+    }
+
+    case GatewayEvents.MessageCreate: {
+      // ...
+      break;
+    }
+  }
+};
+</code></pre>
+<p>To send a message, you can use
+<a href="https://github.com/apacheli/whirlybird/tree/dev/core/http"><code>core/http</code></a>.</p>
+<p>In your <code>deps.ts</code> file:</p>
+<pre><code class="language-ts">export * from &quot;https://github.com/apacheli/whirlybird/raw/dev/core/gateway/mod.ts&quot;;
+export * from &quot;https://raw.githubusercontent.com/apacheli/whirlybird/dev/core/http/mod.ts&quot;;
+</code></pre>
+<p>Next, specify the ID of the channel you want to send join/leave messages to.
+Replace <code>&lt;CHANNEL_ID&gt;</code> with your desired channel's ID.</p>
+<pre><code class="language-ts">const channelId = &quot;&lt;CHANNEL_ID&gt;&quot;;
+</code></pre>
+<p>In each of the cases, create a message to the specified channel:</p>
+<pre><code class="language-ts">    case GatewayEvents.GuildMemberAdd: {
+      const member = payload.d;
+
+      await http.createMessage(channelId, {
+        content: `Welcome, ${member.user.username}.`,
+      });
+      break;
+    }
+
+    case GatewayEvents.GuildMembeRemove: {
+      const member = payload.d;
+
+      await http.createMessage(channelId, {
+        content: `Goodbye, ${member.user.username}.`,
+      });
+      break;
+    }
+</code></pre>
+<p>When connecting to the gateway, you must include the <code>GUILD_MEMBERS</code> intent to
+receive these events.</p>
+<pre><code class="language-ts">const gateway = new GatewayClient(token, {
+  handleEvent,
+  intents: GatewayIntents.GuildMessages | GatewayIntents.GuildMembers,
+  url: &quot;wss://gateway.discord.gg?v=9&quot;,
+});
+</code></pre>
+<p>Congratulations! Your bot should now send a message whenever someone joins or
+leaves your server!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="using-environment-variables"><a class="header" href="#using-environment-variables">Using Environment Variables</a></h1>
+<p>The recommended way of storing your bot's token is by using environment
+variables. You should not hard code your bot's token directly into your program.</p>
+<pre><code class="language-sh">BOT_TOKEN=&quot;&quot;
+</code></pre>
+<p>Optionally, you can use another third party module to automatically load the
+environment variables for you.</p>
+<p>In your <code>main.ts</code> file:</p>
+<pre><code class="language-ts">const token = `Bot ${Deno.env.get(&quot;BOT_TOKEN&quot;)}`;
+</code></pre>
+<p>You must enable <code>--allow-env</code> to use environment variables.</p>
+<pre><code class="language-ts">$ BOT_TOKEN=&quot;&quot; deno run --allow-env --allow-net main.ts
+</code></pre>
+<p>You can also use <code>prompt</code> if you forget to set an environment variable when
+running your program from the CLI.</p>
+<pre><code class="language-ts">let token = Deno.env.get(&quot;BOT_TOKEN&quot;) ?? prompt(&quot;bot token:&quot;);
+if (!token) {
+  throw new Error(&quot;Missing token&quot;);
+}
+token = `Bot ${token}`;
+</code></pre>
+<p><a href="https://deno.land/manual/getting_started/permissions#environment-variables">See the Deno manual</a>
+for additional details.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="interactions"><a class="header" href="#interactions">Interactions</a></h1>
+<p>You must enable the <code>application.commands</code> scope for you bot if you want to use
+your bot's application commands. If you don't need application commands, you can
+skip this step. However for this tutorial, we will use an application command.</p>
+<p>Note: Interactions are not limited to just application commands. For example,
+message components such as buttons and select menus also fall under this
+category.</p>
+<p><img src="./assets/interactions_0.png" alt="" /></p>
+<p>Using <a href="https://github.com/apacheli/whirlybird/tree/dev/core/http"><code>core/http</code></a>
+and helpers from
+<a href="https://github.com/apacheli/whirlybird/tree/dev/core/interactions"><code>core/interactions</code></a>
+to create a global application command:</p>
+<pre><code class="language-ts">import {
+  chatInputCommand,
+  HttpClient,
+  integerOption,
+  stringOption,
+} from &quot;./deps.ts&quot;;
+
+const http = new HttpClient(BOT_TOKEN);
+
+const command = chatInputCommand(&quot;ping&quot;, &quot;ping pong command&quot;, {
+  /* options */
+});
+
+await http.createGlobalApplicationCommand(APPLICATION_ID, command);
+</code></pre>
+<p>You can receive interactions either from the Discord gateway or from an HTTP
+server.</p>
+<p>If you're using the Discord gateway, you will receive a gateway event named
+<code>INTERACTION_CREATE</code>. In your <code>handleEvent</code> function, you must make a case for
+the <code>INTERACTION_CREATE</code> event.</p>
+<pre><code class="language-ts">const handleEvent: HandleEvent = (payload) =&gt; {
+  switch (payload.t) {
+    case GatewayEvents.InteractionCreate: {
+      // ...
+      break;
+    }
+
+    case GatewayEvents.MessageCreate: {
+      // ...
+      break;
+    }
+  }
+};
+</code></pre>
+<p>You can use
+<a href="https://github.com/apacheli/whirlybird/tree/dev/core/http"><code>core/http</code></a> to
+respond to an interaction:</p>
+<pre><code class="language-ts">    case GatewayEvents.InteractionCreate: {
+      const interaction = payload.d;
+
+      if (interaction.data?.name === &quot;ping&quot;) {
+        await http.createInteractionResponse(interaction.id, interaction.token, {
+          data: {
+            content: &quot;pong&quot;,
+          },
+          type: InteractionCallbackType.ChannelMessageWithSource,
+        });
+      }
+      break;
+    }
+</code></pre>
+<p>If you are running an HTTP server, you need your application's public key. To
+get your application's public key, you can visit the
+<a href="https://discord.com/developers/applications">Discord Developer Portal</a>.</p>
+<p><img src="./assets/interactions_1.png" alt="" /></p>
+<p>You can import
+<a href="https://github.com/apacheli/whirlybird/tree/dev/core/interactions"><code>core/interactions</code></a>
+into your program.</p>
+<p>In your <code>deps.ts</code> file:</p>
+<pre><code class="language-ts">export * from &quot;https://github.com/apacheli/whirlybird/raw/dev/core/interactions/mod.ts&quot;;
+</code></pre>
+<p>It will provide a function named <code>handleRequestEvent</code>. This function will
+automatically verify incoming requests for you.</p>
+<pre><code class="language-ts">import {
+  type Handler,
+  handleRequestEvent,
+  InteractionCallbackType,
+} from &quot;./deps.ts&quot;;
+
+const publicKey = Deno.env.get(&quot;PUBLIC_KEY&quot;) ?? prompt(&quot;public key:&quot;);
+if (!publicKey) {
+  throw new Error(&quot;Missing public key&quot;);
+}
+
+const handler: Handler = async (callback, interaction) =&gt; {
+  if (interaction.data?.name === &quot;ping&quot;) {
+    await callback(InteractionCallbackType.ChannelMessageWithSource, {
+      content: &quot;pong&quot;,
+    });
+  }
+};
+
+const serve = async (conn: Deno.Conn) =&gt; {
+  for await (const event of Deno.serveHttp(conn)) {
+    handleRequestEvent(publicKey, event, handler);
+  }
+};
+
+for await (const conn of Deno.listen({ port: 1337 })) {
+  serve(conn);
+}
+</code></pre>
+<p>It is mandatory to respond to an interaction. Otherwise, it will &quot;fail.&quot; For
+unwanted interactions, you can reply with an ephemeral message notifying the
+user:</p>
+<pre><code class="language-ts">import { InteractionCallbackDataFlags } from &quot;https://github.com/apacheli/whirlybird/raw/dev/core/types/mod.ts&quot;;
+
+await callback(InteractionCallbackType.ChannelMessageWithSource, {
+  content: &quot;Do not do that!&quot;,
+  flags: InteractionCallbackDataFlags.Ephemeral,
+});
+</code></pre>
+<p><img src="./assets/interactions_2.png" alt="" /></p>
+<p>Congratulations! Your bot should now respond to your <code>/ping</code> command!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="history-of-whirlybird"><a class="header" href="#history-of-whirlybird">History of whirlybird</a></h1>
+<p>whirlybird first saw development in January of 2019. At that time, it was named
+&quot;Harmony&quot; and was using the Node.js environment. Later, the project would rename
+into &quot;Space&quot; and use the Deno environment. Today the project is now known as
+&quot;whirlybird.&quot;</p>
+<p>I want to thank <a href="https://github.com/gspalato">@gspalato</a> for starting this
+journey with me.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="core-modules"><a class="header" href="#core-modules">Core Modules</a></h1>
+<p>These core modules provide most of the functionality for a Discord bot
+application to run.</p>
+<h2 id="corecache"><a class="header" href="#corecache"><code>core/cache</code></a></h2>
+<p>TODO</p>
+<h2 id="coregateway"><a class="header" href="#coregateway"><a href="https://github.com/apacheli/whirlybird/tree/dev/core/gateway"><code>core/gateway</code></a></a></h2>
+<p>This module allows your Discord application to connect to the Discord gateway
+and receive incoming events in real-time.</p>
+<h2 id="corehttp"><a class="header" href="#corehttp"><a href="https://github.com/apacheli/whirlybird/tree/dev/core/http"><code>core/http</code></a></a></h2>
+<p>This module allows your Discord application to make HTTP requests to Discord.
+whirlybird will automatically handle rate limits in an attempt to minimize
+<code>429</code>s.</p>
+<h2 id="coreinteractions"><a class="header" href="#coreinteractions"><a href="https://github.com/apacheli/whirlybird/tree/dev/core/interactions"><code>core/interactions</code></a></a></h2>
+<p>This module provides tools to help verify incoming requests to your HTTP server.
+It also provides tools such as an application command builder and a message
+component builder.</p>
+<h2 id="coreoauth2"><a class="header" href="#coreoauth2"><code>core/oauth2</code></a></h2>
+<p>TODO</p>
+<h2 id="corerpc"><a class="header" href="#corerpc"><code>core/rpc</code></a></h2>
+<p>TODO</p>
+<h2 id="coretypes"><a class="header" href="#coretypes"><a href="https://github.com/apacheli/whirlybird/tree/dev/core/types"><code>core/types</code></a></a></h2>
+<p>This module exposes TypeScript types that mirror the
+<a href="https://discord.dev/">Discord Developer Documentation</a>.</p>
+<h2 id="coreutil"><a class="header" href="#coreutil"><a href="https://github.com/apacheli/whirlybird/tree/dev/core/util"><code>core/util</code></a></a></h2>
+<p>This module provides utilities for the rest of the core modules to consume. You
+can also use them in your project as well.</p>
+<h2 id="corevoice"><a class="header" href="#corevoice"><code>core/voice</code></a></h2>
+<p>TODO</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="built-in-logging"><a class="header" href="#built-in-logging">Built-In Logging</a></h1>
+<p>whirlybird automatically logs events to the terminal by default. If you wish to
+use the logger, you can import it from
+<a href="https://github.com/apacheli/whirlybird/tree/dev/core/util"><code>core/util</code></a>.</p>
+<p>In your <code>deps.ts</code> file:</p>
+<pre><code class="language-ts">export * from &quot;https://github.com/apacheli/whirlybird/raw/dev/core/util/mod.ts&quot;;
+</code></pre>
+<p>Logger levels:</p>
+<ul>
+<li><code>debug</code>: A general message about an operation.</li>
+<li><code>error</code>: An error has occurred, but the program can still operate.</li>
+<li><code>fatal</code>: A fatal error has occurred, and the program should probably exit.</li>
+<li><code>info</code>: A general message about an operation that executed successfully.</li>
+<li><code>trace</code>: A message about an operation at the finest details.</li>
+<li><code>warn</code>: Something unintentional may have happened. It can usually be ignored.</li>
+</ul>
+<p>whirlybird also provides ANSI colors. Some operating systems or source-code
+editors may not support every color. However, this should mostly benefit your
+use cases.</p>
+<p>In your <code>main.ts</code> file:</p>
+<pre><code class="language-ts">import {
+  ansi,
+  logger,
+} from &quot;https://github.com/apacheli/whirlybird/raw/dev/core/util/mod.ts&quot;;
+
+logger.info(ansi.yellow(&quot;Woah, this message is yellow!&quot;));
+</code></pre>
+<p>You can also use the <code>ansi</code> export for Discord messages. You must use a code
+block. This is a relatively new feature, so it may not show up correctly across
+all clients.</p>
+<pre><code class="language-ts">await http.createMessage(channelId, {
+  content: `\`\`\`ansi\n${ansi.green(&quot;i am groot&quot;)}\n\`\`\``,
+});
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+    </body>
+</html>
