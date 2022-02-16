@@ -64,7 +64,7 @@ const token = "Bot <TOKEN>";
 Replace `<TOKEN>` with your bot's token. To get your bot's token, you can visit
 the [Discord Developer Portal](https://discord.com/developers/applications).
 
-![](../assets/ping_pong_0.png)
+![](./assets/ping_pong_0.png)
 
 While it is unrecommended to hard-code your bot's token into your program, we
 will do it here for demonstration purposes. You can also skip to
@@ -108,7 +108,7 @@ const gateway = new GatewayClient(token, {
 });
 ```
 
-![](../assets/ping_pong_1.png)
+![](./assets/ping_pong_1.png)
 
 Finally, the last snippet will connect us to the Discord gateway.
 

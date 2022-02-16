@@ -8,7 +8,7 @@ Note: Interactions are not limited to just application commands. For example,
 message components such as buttons and select menus also fall under this
 category.
 
-![](../assets/interactions_0.png)
+![](./assets/interactions_0.png)
 
 Using [`core/http`](https://github.com/apacheli/whirlybird/tree/dev/core/http)
 and helpers from
@@ -79,7 +79,7 @@ If you are running an HTTP server, you need your application's public key. To
 get your application's public key, you can visit the
 [Discord Developer Portal](https://discord.com/developers/applications).
 
-![](../assets/interactions_1.png)
+![](./assets/interactions_1.png)
 
 You can import
 [`core/interactions`](https://github.com/apacheli/whirlybird/tree/dev/core/interactions)
@@ -138,6 +138,6 @@ await callback(InteractionCallbackType.ChannelMessageWithSource, {
 });
 ```
 
-![](../assets/interactions_2.png)
+![](./assets/interactions_2.png)
 
 Congratulations! Your bot should now respond to your `/ping` command!

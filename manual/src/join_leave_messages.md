@@ -9,7 +9,7 @@ Visit the
 your application, and then click "Bot." You may or may not have to scroll down
 to find the toggle.
 
-![](../assets/join_leave_messages_0.png)
+![](./assets/join_leave_messages_0.png)
 
 To connect to the gateway, you must use
 [`core/gateway`](https://github.com/apacheli/whirlybird/tree/dev/core/gateway).
